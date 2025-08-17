@@ -1,4 +1,4 @@
-const resData = [
+const resList = [
   {
     info: {
       id: "151649",
@@ -146,16 +146,6 @@ const resData = [
     },
     cta: {
       link: "https://www.swiggy.com/city/chhindwara/adil-hotel-rautha-wada-chhindwara-locality-rest234875",
-      type: "WEBLINK",
-    },
-  },
-  {
-    info: {},
-    analytics: {
-      context: "seo-data-96de3664-9c32-4f3c-8687-df659501f88b",
-    },
-    cta: {
-      link: "https://www.swiggy.com/city/chhindwara/satkar-restaurant-sinchai-colony-satkar-chowk-rest150591",
       type: "WEBLINK",
     },
   },
@@ -752,4 +742,4 @@ const resData = [
   },
 ];
 
-export default resData;
+export default resList;
