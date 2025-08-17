@@ -1,16 +1,15 @@
 {
-  "name": "devnetflix",
+  "name": "foodappfrontend",
   "version": "1.0.0",
   "scripts": {
     "start": "parcel index.html",
+    "build" : "parcel build index.html",
     "test": "jest"
   },
   "author": "Rehan Fazal",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@babel/core": "^7.28.3",
-    "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.15.4"
   },
   "dependencies": {
