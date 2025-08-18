@@ -51,6 +51,7 @@
 
 .filter {
     margin: 5px 5px;
+    display: flex;
 }
 
 .shimmer-container {
@@ -64,4 +65,9 @@
     width: 180px;
     height: 395px;
     background-color: rgb(223, 221, 221);
+}
+
+.login-btn {
+    padding: 0px 20px;
+    cursor: pointer;
 }
