@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 const Body = () => {
 
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
+    const [filterdRestaurants, setFilterdRestaurants] = useState([]);
 
     const [searchText, setSearchText] = useState([]);
 
@@ -19,6 +20,7 @@ const Body = () => {
         const json = await data.json();
         console.log(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
         setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilterdRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
     // We are doing conditional rendaring
@@ -34,7 +36,7 @@ const Body = () => {
                     <button className="search-btn"
                         onClick={() => {
                                 const filterdRestaurents = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-                                setListOfRestaurants(filterdRestaurents);
+                                setFilterdRestaurants(filterdRestaurents);
                             }
                         }
                     >Search</button>
@@ -44,7 +46,7 @@ const Body = () => {
                         const filteredList = listOfRestaurants.filter(
                             (res) => res.info.avgRating > 4
                         )
-                        setListOfRestaurants(filteredList);
+                        setFilterdRestaurants(filteredList);
                         console.log(filteredList);
                         
                     }}
@@ -53,7 +55,7 @@ const Body = () => {
             {/* <div className="search">Search</div> */}
             <div className="res-container">
                 {
-                    listOfRestaurants.map((restaurant) =>  (  
+                    filterdRestaurants.map((restaurant) =>  (  
                         <RestaurantCard key={restaurant.info.id}  resData={restaurant.info} /> 
                     ))
                 }
