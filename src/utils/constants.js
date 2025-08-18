@@ -4,4 +4,4 @@ export const LOGO_URL = "https://www.logodesign.net/logo/smoking-burger-with-let
 
 export const API_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.62951341751227&lng=77.27305223251442&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
-export const API_MENU_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.62951341751227&lng=77.27305223251442&restaurantId=651212&catalog_qa=undefined&submitAction=ENTER"
+export const API_MENU_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.62951341751227&lng=77.27305223251442&restaurantId="
