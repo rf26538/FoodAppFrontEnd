@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+// import resList from "../utils/mockData";
 
+    // const [listOfRestaurants, setListOfRestaurants] = useState(resList);
 
 // React element
 const heading = React.createElement(

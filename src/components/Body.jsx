@@ -1,10 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
-// import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
+import { API_URL } from "../utils/constants";
+import Shimmer from "./Shimmer";
+import { set } from "mongoose";
 
 const Body = () => {
 
-    // const [listOfRestaurants, setListOfRestaurants] = useState(resList);
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
     useEffect(() =>{
@@ -12,11 +13,15 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch(API_URL);
 
         const json = await data.json();
         console.log(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-        setListOfRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
+        setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    }
+
+    if(listOfRestaurants.length === 0) {
+        return <Shimmer />;
     }
 
     return (
