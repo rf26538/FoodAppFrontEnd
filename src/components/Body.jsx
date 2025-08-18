@@ -18,11 +18,11 @@ const Body = () => {
         const data = await fetch(API_URL);
 
         const json = await data.json();
-        console.log(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        console.log(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilterdRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
-
+    
     // We are doing conditional rendaring
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="body">
