@@ -1,28 +1,29 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
-import { API_URL } from "../utils/constants";
+import { useState } from "react";
+import useRestaurantCard from "../utils/useRestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
 
-    const [listOfRestaurants, setListOfRestaurants] = useState([]);
-    const [filterdRestaurants, setFilterdRestaurants] = useState([]);
+    const {
+        listOfRestaurants,
+        setListOfRestaurants,
+        filterdRestaurants,
+        setFilterdRestaurants
+    } = useRestaurantCard();
 
     const [searchText, setSearchText] = useState([]);
 
-    useEffect(() =>{
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        const data = await fetch(API_URL);
-
-        const json = await data.json();
-        console.log(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilterdRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    }
+    const onlineStatus = useOnlineStatus();
+    if(onlineStatus === false) {
+        return (
+            <h1>
+                Looks like you're offline!! Please check your internet connection;
+            </h1>
+        )
+    } 
     
     // We are doing conditional rendaring
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
