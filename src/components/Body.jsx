@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { WithLoveLable } from "./RestaurantCard";
 import { useState } from "react";
 import useRestaurantCard from "../utils/useRestaurantCard";
 import Shimmer from "./Shimmer";
@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
-
     const {
         listOfRestaurants,
         setListOfRestaurants,
@@ -15,6 +14,8 @@ const Body = () => {
     } = useRestaurantCard();
 
     const [searchText, setSearchText] = useState([]);
+
+    const ResWithLoveLable = WithLoveLable(RestaurantCard);
 
     const onlineStatus = useOnlineStatus();
     if(onlineStatus === false) {
@@ -60,7 +61,15 @@ const Body = () => {
             <div className="flex flex-wrap">
                 {
                     filterdRestaurants.map((restaurant) =>  (  
-                        <Link key={restaurant.info.id} to={"/restaurant/"+ restaurant.info.id}><RestaurantCard  resData={restaurant.info} /></Link> 
+                        <Link 
+                            key={restaurant.info.id} 
+                            to={"/restaurant/"+ restaurant.info.id}
+                        >
+                        {/* if the restaurent has giscount tag show flat Deal ResCardWithLove */
+                            (restaurant.info.avgRating > 4.4) ? (<ResWithLoveLable resData={restaurant.info}/>) : (<RestaurantCard  resData={restaurant.info} />)
+                        }
+
+                        </Link> 
                     ))
                 }
             </div>
