@@ -1,9 +1,10 @@
 import RestaurantCard, { WithLoveLable } from "./RestaurantCard";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import useRestaurantCard from "../utils/useRestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
 
 const Body = () => {
     const {
@@ -25,6 +26,8 @@ const Body = () => {
             </h1>
         )
     } 
+
+    const { loggedInUser, setUserName } = useContext(userContext);
     
     // We are doing conditional rendaring
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
@@ -55,6 +58,14 @@ const Body = () => {
                             
                         }}
                     >Top Rated Resturants</button>
+                </div>
+                <div className="my-7 p-4">
+                    <span>User name:</span>
+                    <input 
+                        className="border border-solid border-black" 
+                        value={loggedInUser}
+                        onChange={(e) => setUserName(e.target.value)} 
+                    />
                 </div>
             </div>
             {/* <div className="search">Search</div> */}
