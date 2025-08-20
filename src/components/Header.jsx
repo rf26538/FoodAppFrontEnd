@@ -17,17 +17,17 @@ const Header = () => {
             <div className="flex items-center">
                 <ul className="flex p-4 m-4">
                     <li className="px-4">Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
-                    <li className="px-4 underline"><Link to="/">Home</Link></li>
-                    <li className="px-4 underline"><Link to="/about">About Us</Link></li>
-                    <li className="px-4 underline"><Link to="/contact">Contact Us</Link></li>
-                    <li className="px-4 underline"><Link to="/cart">Cart</Link></li>
-                    <li className="px-4 underline"><Link to="/grocery">Grocery</Link></li>
+                    <li className="px-4"><Link to="/">Home</Link></li>
+                    <li className="px-4"><Link to="/about">About Us</Link></li>
+                    <li className="px-4"><Link to="/contact">Contact Us</Link></li>
+                    <li className="px-4"><Link to="/cart">Cart</Link></li>
+                    <li className="px-4"><Link to="/grocery">Grocery</Link></li>
                     <button className="cursor-pointer"
                         onClick={() => {
                            btnName === "LogIn" ? setBtnName("LogOut") : setBtnName("LogIn");
-                        }}
+                        }} 
                     >{ btnName }</button>
-                    <li className="px-4 underline">{loggedInUser}</li>
+                    <li className="px-4">{loggedInUser}</li>
                 </ul>
             </div>
         </div>
