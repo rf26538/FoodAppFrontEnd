@@ -9,8 +9,6 @@ const RestaurantMenu = () => {
   const resInfo = useRestaurantMenu(resId);
   const [showIndex, SetShowIndex] = useState(null);
 
-  const dummy = "Dumy Data"; 
-
   if (!resInfo) return <Shimmer />;
 
   const { name, costForTwoMessage, cuisines } = resInfo?.cards?.[2]?.card?.card?.info || {};
