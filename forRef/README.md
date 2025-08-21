@@ -19,3 +19,5 @@ step7 - Selector
     - Install babel dependencies
     - Configure bable
     - Configure parcel config file to disable  default babel transpilation
+    - Jest configuration-> npm init jest@latest
+    - Install js Dom
