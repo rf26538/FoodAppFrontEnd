@@ -21,3 +21,6 @@ step7 - Selector
     - Configure parcel config file to disable  default babel transpilation
     - Jest configuration-> npm init jest@latest
     - Install jsDom -> npm install --save-dev jest-environment-jsdom
+    - Install @babel/preset-react to test jsx component
+        . Add this to enable it using "['@babel/preset-react', {runtime : "automatic"}]," in babel.config.js
+    - Install testing library -> 
