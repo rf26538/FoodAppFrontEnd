@@ -6,11 +6,14 @@ const useRestaurantCard = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filterdRestaurants, setFilterdRestaurants] = useState([]);
 
+    console.log(listOfRestaurants.length);
+    
     useEffect(() =>{
         fetchData();
     }, []);
 
     const fetchData = async () => {
+        
         const data = await fetch(API_URL);
 
         const json = await data.json();
