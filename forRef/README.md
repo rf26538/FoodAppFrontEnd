@@ -23,4 +23,4 @@ step7 - Selector
     - Install jsDom -> npm install --save-dev jest-environment-jsdom
     - Install @babel/preset-react to test jsx component
         . Add this to enable it using "['@babel/preset-react', {runtime : "automatic"}]," in babel.config.js
-    - Install testing library -> 
+    - Install testing library -> npm i -D @testing-library/jest-dom
