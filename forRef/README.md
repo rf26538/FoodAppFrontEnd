@@ -20,4 +20,4 @@ step7 - Selector
     - Configure bable
     - Configure parcel config file to disable  default babel transpilation
     - Jest configuration-> npm init jest@latest
-    - Install js Dom
+    - Install jsDom -> npm install --save-dev jest-environment-jsdom
