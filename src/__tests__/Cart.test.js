@@ -7,6 +7,7 @@ import appStore from "../utils/appStore";
 import Header from "../components/Header";
 import { MemoryRouter } from "react-router";
 import "@testing-library/jest-dom";
+import Cart from "../components/Cart"
 
 global.fetch = jest.fn(() => 
     Promise.resolve({
@@ -32,9 +33,14 @@ it("Should show restaurant menu component", async () => {
     const addBtns = screen.getAllByRole("button", {name : "Add +"});
     fireEvent.click(addBtns[0]);
 
-    const cartInfo = screen.getByText("Cart-1 items");
-    // console.log(cartInfo)
+    expect(screen.getByText("Cart-1 items")).toBeInTheDocument();
 
-    expect(cartInfo).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", {name : "Clear Cart"}));
+
+    expect(screen.getAllByTestId("foodItems").length).toBe(0);
+
+    // expect(
+    //     screen.getAllByText("Cart is empty Add Items to the cart!").toBeInTheDocument()
+    // );
 
 })
