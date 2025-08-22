@@ -17,6 +17,7 @@ const useRestaurantCard = () => {
         const data = await fetch(API_URL);
 
         const json = await data.json();
+        
         console.log(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilterdRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)

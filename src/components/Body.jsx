@@ -13,7 +13,7 @@ const Body = () => {
         filterdRestaurants,
         setFilterdRestaurants
     } = useRestaurantCard();
-
+  
     const [searchText, setSearchText] = useState([]);
 
     const ResWithLoveLable = WithLoveLable(RestaurantCard);
@@ -34,7 +34,12 @@ const Body = () => {
         <div className="body">
             <div className="flex">
                 <div className="m-4 p-4">
-                    <input type="text" className="border border-solid border-black" value={ searchText } onChange={
+                    <input 
+                        type="text"
+                        data-testid="searchInput"
+                        className="border border-solid border-black" 
+                        value={ searchText } 
+                        onChange={
                         (e) => {
                             setSearchText(e.target.value);
                         }
@@ -54,7 +59,7 @@ const Body = () => {
                                 (res) => res.info.avgRating > 4
                             )
                             setFilterdRestaurants(filteredList);
-                            console.log(filteredList);
+                            // console.log(filteredList);
                             
                         }}
                     >Top Rated Resturants</button>
