@@ -58,9 +58,11 @@ it("Should change login button to logout", () => {
         </Provider>
     );
 
+    const LogIn = screen.getByRole("button", { name : "LogIn"});
+
     fireEvent.click(LogIn)
 
-    const loginButton = screen.getByRole("button", { name : "LogOut"});
+    const logOut = screen.getByRole("button", { name : "LogOut"});
 
-    expect(loginButton).toBeInTheDocument();
+    expect(logOut).toBeInTheDocument();
 });
