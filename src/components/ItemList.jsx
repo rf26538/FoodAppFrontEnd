@@ -9,7 +9,8 @@ const ItemList = ({ items }) => {
         <div>
             {
                 items.map((item, index) => (
-                    <div 
+                    <div
+                    data-testid="foodItems"
                         key={item?.card?.info?.id + index} 
                         className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between"
                     >

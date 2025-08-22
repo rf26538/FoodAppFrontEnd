@@ -1,4 +1,4 @@
-const { render, screen, fireEvent } = require("@testing-library/react");
+import { render, screen, fireEvent } from "@testing-library/react";
 import Body from "../components/Body";
 import MOCK_DATA from "../mocks/RestaurantListData.json";
 import { act } from "react";
@@ -13,20 +13,45 @@ global.fetch = jest.fn(() => {
     })
 })
 
-it("should render the body component with search button", async () => {
+// it("should render the body component with search button", async () => {
+//     await act(async () => render(
+//         <MemoryRouter>
+//             <Body />
+//         </MemoryRouter>
+//     ))
+
+//     const cardsBeforeSearch = screen.getAllByTestId("resCard")
+    
+//     expect(cardsBeforeSearch.length).toBe(12)
+
+//     const searchBtn = screen.getByRole("button", {name : "Search"});
+//     const searchInput = screen.getByTestId("searchInput");
+
+//     fireEvent.change(searchInput, { target: {value: "Subway"} });
+
+//     fireEvent.click(searchBtn);
+//     // expect(searchBtn).toBeInTheDocument();
+
+//     const cards = screen.getAllByTestId("resCard");
+    
+//     expect(cards.length).toBe(1)
+// });
+
+it("should render the top rated restaurant", async () => {
     await act(async () => render(
         <MemoryRouter>
             <Body />
         </MemoryRouter>
     ))
 
-    const searchBtn = screen.getByRole("button", {name : "Search"});
-    const searchInput = screen.getByTestId("searchInput");
+    const cardsBeforeSearch = screen.getAllByTestId("resCard")
+    
+    expect(cardsBeforeSearch.length).toBe(12)
 
-    fireEvent.change(searchInput, { target: {value: "Subway"} });
+    const topRatedBtn = screen.getByRole("button", {name : "Top Rated Resturants"});
 
-    fireEvent.click(searchBtn);
-    // expect(searchBtn).toBeInTheDocument();
+    fireEvent.click(topRatedBtn);
+    // expect(topRatedBtn).toBeInTheDocument();
 
     const cards = screen.getAllByTestId("resCard");
     

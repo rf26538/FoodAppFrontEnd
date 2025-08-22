@@ -33,7 +33,7 @@ describe("Input test cases for contact us", () => {
     it("Should load 2 input boxes inside contact us component", () => {
         render(<Contact />);
         const inputBoxes = screen.getAllByRole("textbox");
-        console.log(inputBoxes);
+        // console.log(inputBoxes);
         
         expect(inputBoxes.length).toBe(2);
     })
@@ -46,3 +46,22 @@ describe("Input test cases for contact us", () => {
         expect(inputBoxes.length).not.toBe(3);
     })
 })
+
+// describe("Contact us page test case", () => {
+//    beforeAll(() => {
+//     console.log("Before All")
+//    })
+
+//    beforeEach(() => {
+//     console.log("before Each");
+//    })
+
+//    afterEach(() => {
+//     console.log("after Each");
+//    })
+
+//    afterAll(() => {
+//     console.log("After All");
+//    })
+
+// })
